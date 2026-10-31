@@ -1,0 +1,125 @@
+{
+  "timezone": "Asia/Manila",
+  "schedule": [
+    {
+      "day": "Monday",
+      "dayOfWeek": 1,
+      "classes": [
+        {
+          "course": "CS 3202N",
+          "room": "LB485TC",
+          "start": "09:00",
+          "end": "10:30"
+        },
+        {
+          "course": "MAT 4201",
+          "room": "LB486TC",
+          "start": "10:30",
+          "end": "12:00"
+        },
+        {
+          "course": "GE-TCW",
+          "room": "LB485TC",
+          "start": "12:00",
+          "end": "13:30"
+        },
+        {
+          "course": "CS 3106N",
+          "room": "LB447TC",
+          "start": "15:00",
+          "end": "18:00"
+        },
+        {
+          "course": "CS 3205",
+          "room": "LB484TC",
+          "start": "18:00",
+          "end": "19:30"
+        }
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "dayOfWeek": 2,
+      "classes": [
+        {
+          "course": "CS 3104N",
+          "room": "LB446TC",
+          "start": "10:00",
+          "end": "13:00"
+        },
+        {
+          "course": "GE-ART",
+          "room": "LB486TC",
+          "start": "16:30",
+          "end": "18:00"
+        }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "dayOfWeek": 3,
+      "classes": [
+        {
+          "course": "CS 3202N",
+          "room": "LB485TC",
+          "start": "09:00",
+          "end": "10:30"
+        },
+        {
+          "course": "MAT 4201",
+          "room": "LB486TC",
+          "start": "10:30",
+          "end": "12:00"
+        },
+        {
+          "course": "GE-TCW",
+          "room": "LB485TC",
+          "start": "12:00",
+          "end": "13:30"
+        },
+        {
+          "course": "CS 3106N",
+          "room": "LB447TC",
+          "start": "15:00",
+          "end": "18:00"
+        },
+        {
+          "course": "CS 3205",
+          "room": "LB484TC",
+          "start": "18:00",
+          "end": "19:30"
+        }
+      ]
+    },
+    {
+      "day": "Thursday",
+      "dayOfWeek": 4,
+      "classes": [
+        {
+          "course": "CS 3104N",
+          "room": "LB446TC",
+          "start": "10:00",
+          "end": "13:00"
+        },
+        {
+          "course": "GE-ART",
+          "room": "LB486TC",
+          "start": "16:30",
+          "end": "18:00"
+        }
+      ]
+    },
+    {
+      "day": "Friday",
+      "dayOfWeek": 5,
+      "classes": [
+        {
+          "course": "CS 4101N",
+          "room": "LB469TC",
+          "start": "10:30",
+          "end": "13:30"
+        }
+      ]
+    }
+  ]
+}

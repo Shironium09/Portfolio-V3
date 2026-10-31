@@ -1,0 +1,179 @@
+{
+  "projects": [
+    {
+      "id": "cebu-plant-depot",
+      "name": "Cebu Plant Depot",
+      "fullName": "Cebu Plant Depot POS and E-commerce Website",
+      "description": "Developed a simple E-commerce and POS system for a small Cebu-based business",
+      "tags": ["HTML5", "Bootstrap CSS", "PHP", "MySQL"],
+      "link": "https://github.com/24102070/Cebu_Plant_Depot",
+      "image": "src/assets/projects/cebu-plant-depot.png",
+      "chosen": true,
+      "case-study": {
+        "problem":"Cebu Plant Depot, a small company relies on 2 main and manual process: Utilizing Facebook for selling their products, and manual verification of inventory available. The clutter and mess of managing these things, a small but can be a hassle tasks, which technology can help solve",
+        "solution":"We built Cebu Plant Depot, a web-based Point of Sale (POS) as well as an Inventory Management System, built to cater to not only the specific small business we had, Cebu Plant Depot, but also to any other plant-based (or even non-plant based) businesses out there who is looking to upgrade the flow of their business, from a lot of manual load to reducing it with the help of technology"
+      }
+    },
+    {
+      "id": "credenza",
+      "name": "Credenza",
+      "fullName": "Credenza",
+      "description": "Engineered a website for E-certificate generation that allows users to generate the certificates and be able to send them to the participants as well as Google Drive archiving, used by different organizations such as Google Developers Group on Campus - USC and AIPilipinas",
+      "tags": ["React", "Tailwind CSS", "NodeJS", "Firebase"],
+      "link": "https://github.com/Shironium09/Credenza",
+      "image": "src/assets/projects/credenza.png",
+      "chosen": true,
+      "case-study": {
+        "problem":"In College, certificates are a big thing. It signifies and physically shows your participation and interest in an event, and maybe even a field. Organizations tend to give this out a lot, and with events having a lot of participants in a lot of cases, manually putting names into these certificates and individually sending them out is such a big hassle.",
+        "solution":"Credenza, a small and simple system that allows users to automatically apply the names of a certain event and send them out to the users automatically, automating a task that might've taken hours to making it happen within minutes and within a few clicks. Another feature, is the archiving of such certificates to the user's Google Drive in order to help with certain certificates losing and being able to save them for archive purposes."
+      } 
+    },
+    {
+      "id": "awas",
+      "name": "Awas",
+      "fullName": "Awas",
+      "description": "A hackathon project in compliance with the Sustainable Development Goal number 6 which provides users the ability to report and monitor water outages in the areas",
+      "tags": ["NextJS", "Tailwind CSS", "Supabase"],
+      "link": "https://github.com/matchacone/Awas",
+      "image": "src/assets/projects/awas.png",
+      "chosen": true,
+      "case-study": {
+        "problem":"Water outages are becoming quite abundant over the years. These outages, even from trusted water suppliers and stuff, might take time to update people on social media. With some emergenceis that can happen in that amount of time, a solution must be provided",
+        "solution":"Awas is a simple web-application that aims to help with 2 things: A quicker update with the availability of water and such and improved community-drive with each other. Awas allows a quicker update of these with the help of the community updating whether their area has experienced water outage or restoration of water."
+      } 
+    },
+    {
+      "id": "leftover",
+      "name": "Leftover",
+      "fullName": "Leftover",
+      "description": "Developed a mobile application that allows users to decide on recipes and dishes to cook given the available ingredients with the help of AI",
+      "tags": ["React Native", "Expo", "Supabase", "Gemini AI"],
+      "link": "https://github.com/Shironium09/Leftover",
+      "image": "src/assets/projects/leftover.png",
+      "chosen": true,
+      "case-study": {
+        "problem":"Ever tried opening your friedge and think to yourself of what you can cook, only to end up with nothing in mind? It's quite a common experience that is nothing to be ashamed of. Sometimes, we don't know what we really want",
+        "solution":"Leftover is an AI-backed mobile app that allows creates your recipes for you. Instead of having to think hard of what to cook, the app gets an image of your fridge, and will know your available ingredients with the help of Computer Vision. Then using an AI, it will give you options of possible recipes you can make."
+      } 
+    },
+    {
+      "id": "alexandria",
+      "name": "Alexandria",
+      "fullName": "Alexandria",
+      "description": "Helped in developing a hub for research and thesis paper repositories, focusing more on the UI/UX design of the system",
+      "tags": ["NextJS", "Tailwind CSS", "Supabase"],
+      "link": "https://github.com/peaceyyy/Alexandria---DCISM-Research-Repository",
+      "image": "src/assets/projects/alexandria.png",
+      "chosen": true,
+      "case-study": {
+        "problem":"Finding thesis or research papers to use as reference can be hard, especially in our university where papers are published in different platforms and different publications. Whenever students need to reference something, they would need to scour through the internet just to find these papers",
+        "solution":"Alexandria is university-local web-application that serves as the hub for different research, capstone, and thesis papers from the department. With this application, you are able to view the works of a lot of the students, current and alumni alike. With this hub, we are able to help reduce the need to find these papers online, and most especially reduce the stress in looking for references."
+      } 
+    },
+    {
+      "id": "angbot",
+      "name": "Angbot",
+      "fullName": "Angbot",
+      "description": "A RAG-based project that integrates a chatbot into your Discord servers, which also includes a dedicated Web-based dashboard for customizability",
+      "tags": ["NextJS", "Tailwind CSS", "TypeScript"],
+      "link": "https://github.com/devliqht/angbot",
+      "image": "src/assets/projects/angbot.jpg",
+      "chosen": true,
+      "case-study": {
+        "problem":"Productivity is a problem that most students experience. This often is because of the environment and the conditions the students are currently in. For example, Discord, while is mainly advertised for gamers, can be used for work and for educational purposes as well.",
+        "solution":"Angbot is a RAG-based Discord bot that allows you to make your discord server and channel smarter. With this, you will have a chatbot that will help you with different context you upload on the dedicated Web-Application that serves as the Discord bot's admin panel. This allows users to quickly add or create contexts and manage the bot's behaviors and everything."
+      } 
+    },
+    {
+      "id": "colloquium",
+      "name": "Colloquium",
+      "fullName": "Colloquium",
+      "description": "Developed the frontend for a web-scraper for research and thesis paper conferences",
+      "tags": ["React", "Tailwind CSS", "Supabase", "Python"],
+      "link": "https://github.com/Shironium09/Colloqium",
+      "image": "src/assets/projects/colloqium.png",
+      "chosen": true,
+        "case-study": {
+        "problem":"Finding research conferences or publications can be a biog hassle. There are countless websites for this, but some of them does not fit to your specific need: Whether it would be locally, or from different publications.",
+        "solution":"This Website shows the different research conferences from different sources on different topics. You can sort them to however you want, and filter them based on what you really need, wheter it is that you want a local conference, or you want them to be cheaper."
+      } 
+    },
+    {
+      "id": "pokedex",
+      "name": "Pokedex",
+      "fullName": "Pokedex-API-Project",
+      "description": "A simple pokedex web application using Pokemon API",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "link": "https://github.com/Shironium09/Pokedex-API-Project",
+      "chosen": false
+    },
+    {
+      "id": "triples",
+      "name": "StantripleSv2",
+      "fullName": "StantripleSv2",
+      "description": "A website for K-pop group tripleS",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "link": "https://github.com/Shironium09/stantripleSv2",
+      "chosen": false
+    },
+    {
+      "id": "space-glider",
+      "name": "Space Glider",
+      "fullName": "Space Glider",
+      "description": "An Object Oriented Project, which is a bullet-hell style game using Java",
+      "tags": ["Java", "CSS"],
+      "link": "https://github.com/Shironium09/Space-Glider",
+      "chosen": false
+    },    
+    {
+      "id": "repo-assistant-app",
+      "name": "R.E.P.O Assitant App",
+      "fullName": "R.E.P.O Assitatnt App",
+      "description": "A simple ElectronJS app that helps with the game R.E.P.O",
+      "tags": ["HTML", "CSS", "JavaScript", "ElectronJS"],
+      "link": "https://github.com/Shironium09/REPO-Assistant-App",
+      "chosen": false
+    },    
+    {
+      "id": "fgo-gacha-simulator",
+      "name": "FGO Gacha Simulator",
+      "fullName": "FGO Gacha Simulator",
+      "description": "A web-app that aims to recreate the gacha of Fate: Grand Order",
+      "tags": ["React", "CSS", "External API"],
+      "link": "https://github.com/Shironium09/FGO-Gacha-Simulator",
+      "chosen": false
+    }
+  ],
+  "technicalSkills": {
+    "languages": [
+      "C",
+      "C++",
+      "JavaScript",
+      "TypeScript"
+    ],
+    "webAndMobileDevelopment": [
+      "HTML5",
+      "CSS3",
+      "React",
+      "React Native",
+      "Tailwind CSS",
+      "Vite"
+    ],
+    "backEndDevelopment": [
+      "NodeJS",
+      "PHP",
+      "MySQL",
+      "Firebase"
+    ],
+    "tools": [
+      "Git",
+      "Github",
+      "Figma",
+      "Canva",
+      "Miro",
+      "Expo",
+      "Google Gemini",
+      "Claude"
+    ]
+  }
+}

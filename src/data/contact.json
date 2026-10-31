@@ -1,0 +1,25 @@
+{
+  "contact": {
+    "location": "Cebu City, Philippines",
+    "phone": "(+63) 963 212 0444",
+    "email": "dustinj.bal09@gmail.com",
+    "socials": [
+      {
+        "platform": "LinkedIn",
+        "username": "Dustin Jesse Balansag",
+        "url": "https://linkedin.com/in/dustin-jesse-balansag"
+      },
+      {
+        "platform": "GitHub",
+        "username": "Shironium09",
+        "url": "https://github.com/Shironium09"
+      },
+      {
+        "platform": "Facebook",
+        "username": "Dustin Jesse Balansag",
+        "url": "https://www.facebook.com/dustinjesse.balansag.5"
+      }
+    ]
+  }
+}
+

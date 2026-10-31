@@ -1,0 +1,98 @@
+{
+  "experience": {
+    "education": [
+      {
+        "id": "usc",
+        "institution": "University of San Carlos",
+        "location": "Cebu City",
+        "degree": "Bachelor of Science in Computer Science",
+        "period": "2024 - Present",
+        "honors": ["Consistent Dean’s Lister"],
+        "organizations": ["Google Developer's Group on Campus - USC", "Computer Information and Science Council", "Carolinian Youth Minister"]
+      },
+      {
+        "id": "dlsasmc",
+        "institution": "De La Salle Andres Soriano Memorial College",
+        "location": "Cebu City",
+        "degree": "STEM",
+        "period": "2022 - 2024",
+        "honors": ["High Honors", "Loyalty Medalist"],
+        "organizations": ["Knights of the Altars Club", "Lasallian Spark", "Rover Scouts of the Philippines"]
+      },
+      {
+        "id": "dlsasmc",
+        "institution": "De La Salle Andres Soriano Memorial College",
+        "location": "Cebu City",
+        "degree": "Junior High School",
+        "period": "2018 - 2022",
+        "honors": [],
+        "organizations": ["Knights of the Altars Club", "Boy Scouts of the Philippines"]
+      },
+      {
+        "id": "dlsasmc",
+        "institution": "De La Salle Andres Soriano Memorial College",
+        "location": "Cebu City",
+        "degree": "Grade School",
+        "period": "2012 - 2018",
+        "honors": [],
+        "organizations": ["Knights of the Altars Club"]
+      }
+    ],
+    "certificates": [
+      {
+        "id": "philnits-fe",
+        "title": "PhilNITS-FE Passer",
+        "link": "https://itpec.org/statsandresults/all-passers-information/Philippines/2026S_FE.pdf"
+      },
+      {
+        "id": "ccna-itn",
+        "title": "CCNA: Introduction to Networks"
+      },
+      {
+        "id": "ccna-srwe",
+        "title": "CCNA: Switching, Routing, and Wireless Essentials"
+      },
+      {
+        "id": "raccetcon-2026",
+        "title": "RACCETCon 2026 - Breaking the Barrier: Bridging Hardware and Software Guest Speaker"
+      },
+      {
+        "id": "devfest",
+        "title": "DevFest Cebu Attendee"
+      },
+      {
+        "id": "ailric",
+        "title": "AI in Language Research International Conference 2026 Attendee"
+      }
+    ],
+    "organizations": [
+      {
+        "id": "gdg-usc-web-dev",
+        "organization": "Google Developers Group on Campus - University of San Carlos",
+        "role": "Web Development Officer",
+        "description": "Became the Web Development Officer for GDG-USC under the technology department, sharing my interests and knowledge in the field to those new and familiar alike, overseeing the official GDGoC-USC website, and creating events and sharing useful information to those interested.",
+        "period": "2025 - 2026"
+      },
+      {
+        "id": "gdg-usc-creative-head",
+        "organization": "Google Developers Group on Campus - University of San Carlos",
+        "role": "Creative Designer Head",
+        "description": "Became the Creatives Head of GDG-USC under the Marketing Department, responsible for overseeing creative materials within the organization such as publication materials, merch designs, etc, nourishing not only my creativity, but also my leadership and guidance towards others, even those who are more skilled and more talented than I am.",
+        "period": "2026 - 2027"
+      },
+      {
+        "id": "cisco-ways-means",
+        "organization": "Computer Information and Sciences Council",
+        "role": "Ways and Means Officer",
+        "description": "Became a Ways and Means Officer of CISCO under the Finance Department, overseeing the merch inbound and outbound of the organization, responsible for keeping track of such merch, and occasionally helping out with the financial aspects of the organization.",
+        "period": "2026 - 2027"
+      }
+    ],
+    "marquee": [
+      "Web Development Officer",
+      "Creatives Head",
+      "Ways and Means Officer",
+      "PhilNITS FE Passer"
+    ]
+  }
+}
