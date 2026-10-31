@@ -15,6 +15,7 @@ const projectImages = {
   'leftover': leftoverImg,
   'alexandria': alexandriaImg,
   'angbot': angbotImg,
+  'colloquium': colloqiumImg,
   'colloqium': colloqiumImg,
 }
 

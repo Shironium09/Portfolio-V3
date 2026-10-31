@@ -91,7 +91,7 @@
       "description": "Developed the frontend for a web-scraper for research and thesis paper conferences",
       "tags": ["React", "Tailwind CSS", "Supabase", "Python"],
       "link": "https://github.com/Shironium09/Colloqium",
-      "image": "src/assets/projects/colloqium.png",
+      "image": "src/assets/projects/colloquium.png",
       "chosen": true,
         "case-study": {
         "problem":"Finding research conferences or publications can be a biog hassle. There are countless websites for this, but some of them does not fit to your specific need: Whether it would be locally, or from different publications.",
