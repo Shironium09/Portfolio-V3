@@ -199,12 +199,12 @@ export default function AsciiSaturn({ isDark = true, animationsEnabled = true })
       {/* Perfectly proportioned circular ASCII Saturn with pure alpha mask on left */}
       <pre
         ref={preRef}
-        className={`relative z-10 select-none transition-colors duration-300 whitespace-pre translate-x-28 sm:translate-x-36 md:translate-x-48 lg:translate-x-56 xl:translate-x-52 2xl:translate-x-40 -translate-y-5 sm:-translate-y-7 lg:-translate-y-9 [mask-image:linear-gradient(to_right,transparent,black_36px)] ${isDark
+        className={`relative z-10 select-none transition-colors duration-300 whitespace-pre translate-x-16 sm:translate-x-28 md:translate-x-48 lg:translate-x-56 xl:translate-x-52 2xl:translate-x-40 -translate-y-2 sm:-translate-y-5 lg:-translate-y-9 [mask-image:linear-gradient(to_right,transparent,black_36px)] ${isDark
             ? 'text-[#3f8fe0] [text-shadow:0_0_12px_rgba(63,143,224,0.3)]'
             : 'text-[#12335f] [text-shadow:0_0_8px_rgba(18,51,95,0.15)]'
           }`}
         style={{
-          font: 'clamp(7px, 1.15vw, 18px) / 1.14 ui-monospace, "SF Mono", Menlo, Consolas, monospace',
+          font: 'clamp(6.5px, 1.15vw, 18px) / 1.14 ui-monospace, "SF Mono", Menlo, Consolas, monospace',
           letterSpacing: '0px',
         }}
       />

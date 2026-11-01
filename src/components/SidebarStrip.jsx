@@ -17,6 +17,17 @@ export default function SidebarStrip({
   const [isOpen, setIsOpen] = useState(false)
   const [screenDash, setScreenDash] = useState(null) // 'to-off' | 'to-on' | null
   const [internalMuted, setInternalMuted] = useState(() => getSoundMuted())
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  )
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const soundMuted = isMuted !== undefined ? isMuted : internalMuted
 
@@ -163,13 +174,21 @@ export default function SidebarStrip({
       )}
 
       <motion.aside
-        initial={isEntranceActive ? { x: -140, opacity: 0 } : false}
+        initial={
+          isEntranceActive
+            ? isMobile
+              ? { y: -80, opacity: 0 }
+              : { x: -140, opacity: 0 }
+            : false
+        }
         animate={
           isEntranceActive
             ? showSidebar
-              ? { x: 0, opacity: 1 }
+              ? { x: 0, y: 0, opacity: 1 }
+              : isMobile
+              ? { y: -80, opacity: 0 }
               : { x: -140, opacity: 0 }
-            : { x: 0, opacity: 1 }
+            : { x: 0, y: 0, opacity: 1 }
         }
         transition={{
           type: 'spring',
@@ -177,43 +196,57 @@ export default function SidebarStrip({
           damping: 24,
           mass: 0.9,
         }}
-        className={`relative h-full w-20 md:w-24 lg:w-28 xl:w-32 shrink-0 flex flex-col justify-between py-6 xl:py-8 px-3 border-r select-none ${
+        className={`relative z-30 w-full shrink-0 flex flex-col border-b md:h-full md:w-24 lg:w-28 xl:w-32 md:border-b-0 md:border-r md:flex-col md:justify-between py-3 px-4 sm:px-6 md:py-6 xl:py-8 md:px-3 select-none ${
           isDark
-            ? 'bg-[#07080b] border-white/[0.04] text-white'
+            ? 'bg-[#07080b] border-white/[0.06] text-white'
             : 'bg-[#eaedf2] border-neutral-300 text-neutral-900'
         }`}
       >
-        {/* Top Section: Circular Settings Button & Downward Extension */}
-        <div className="relative z-10 flex flex-col items-center">
-          {/* Circular Settings Button (Minimal 3-line Menu) */}
-          <button
-            onClick={() => setIsOpen((prev) => !prev)}
-            title="Menu"
-            aria-label="Toggle menu"
-            className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 cursor-pointer ${
-              isOpen
-                ? isDark
-                  ? 'border-white/30 bg-white/[0.12] text-white shadow-lg shadow-white/5'
-                  : 'border-neutral-900 bg-neutral-900 text-white shadow-md'
-                : isDark
-                ? 'border-white/[0.06] bg-transparent text-neutral-400 hover:text-white hover:border-white/[0.15]'
-                : 'border-neutral-300 bg-white text-neutral-700 hover:text-black hover:border-neutral-400 shadow-sm'
-            }`}
-          >
-            <Menu
-              className={`w-4 h-4 transition-transform duration-300 ${
-                isOpen ? 'rotate-90' : ''
-              }`}
-            />
-          </button>
+        {/* Top Section on Desktop / Main Bar + Dropdown on Mobile */}
+        <div className="relative z-10 flex flex-col w-full md:items-center">
+          {/* Bar Row: Title on left for mobile, Menu button on right for mobile; Centered button on desktop */}
+          <div className="flex items-center justify-between w-full md:flex-col md:items-center">
+            {/* Mobile Branding / Text (shown on mobile at top-left) */}
+            <div className="flex items-center md:hidden min-w-0 pr-2">
+              <span
+                className={`font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.2em] sm:tracking-[0.26em] uppercase truncate ${
+                  isDark ? 'text-neutral-400' : 'text-neutral-600'
+                } transition-colors`}
+              >
+                DUSTIN / DEVELOPMENT / CREATIVITY
+              </span>
+            </div>
 
-          {/* Inline Downward Extension (3 button choices: Black/White simplicity) */}
+            {/* Circular Settings Button (Minimal 3-line Menu) */}
+            <button
+              onClick={() => setIsOpen((prev) => !prev)}
+              title="Menu"
+              aria-label="Toggle menu"
+              className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 cursor-pointer ${
+                isOpen
+                  ? isDark
+                    ? 'border-white/30 bg-white/[0.12] text-white shadow-lg shadow-white/5'
+                    : 'border-neutral-900 bg-neutral-900 text-white shadow-md'
+                  : isDark
+                  ? 'border-white/[0.06] bg-transparent text-neutral-400 hover:text-white hover:border-white/[0.15]'
+                  : 'border-neutral-300 bg-white text-neutral-700 hover:text-black hover:border-neutral-400 shadow-sm'
+              }`}
+            >
+              <Menu
+                className={`w-4 h-4 transition-transform duration-300 ${
+                  isOpen ? 'rotate-90' : ''
+                }`}
+              />
+            </button>
+          </div>
+
+          {/* Inline Extension (3 buttons): Horizontal row aligned right under menu on mobile, vertical column on desktop */}
           <div
-            className={`flex flex-col items-center gap-2.5 pt-3 overflow-hidden transition-all duration-300 ease-out ${
+            className={`flex items-center md:flex-col gap-2.5 overflow-hidden transition-all duration-300 ease-out ${
               isOpen
-                ? 'max-h-60 opacity-100 translate-y-0'
-                : 'max-h-0 opacity-0 -translate-y-2 pointer-events-none'
-            }`}
+                ? 'max-h-20 opacity-100 pt-2.5 md:pt-3 md:max-h-60'
+                : 'max-h-0 opacity-0 -translate-y-2 pointer-events-none md:max-h-0'
+            } justify-end w-full md:w-auto md:items-center`}
           >
             {/* Button 1: Animations Toggle (Minimal Play/Pause) */}
             <button
@@ -221,7 +254,7 @@ export default function SidebarStrip({
               data-no-click-sound="true"
               title={animationsEnabled ? 'Animations: ON' : 'Animations: OFF'}
               aria-label="Toggle animations"
-              className={`w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer ${
+              className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full border flex items-center justify-center shrink-0 transition-all duration-200 cursor-pointer ${
                 animationsEnabled
                   ? isDark
                     ? 'bg-white text-black border-white shadow-md shadow-white/20'
@@ -244,7 +277,7 @@ export default function SidebarStrip({
               data-no-click-sound="true"
               title={!isDark ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
               aria-label="Toggle theme"
-              className={`w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer ${
+              className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full border flex items-center justify-center shrink-0 transition-all duration-200 cursor-pointer ${
                 !isDark
                   ? 'bg-neutral-900 text-white border-neutral-900 shadow-md'
                   : 'bg-transparent border-white/[0.08] text-neutral-400 hover:text-white hover:border-white/[0.2]'
@@ -263,7 +296,7 @@ export default function SidebarStrip({
               data-no-click-sound="true"
               title={!soundMuted ? 'Sound Effects: ON' : 'Sound Effects: MUTED'}
               aria-label="Toggle sound effects"
-              className={`w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer ${
+              className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full border flex items-center justify-center shrink-0 transition-all duration-200 cursor-pointer ${
                 !soundMuted
                   ? isDark
                     ? 'bg-white text-black border-white shadow-md shadow-white/20'
@@ -282,8 +315,8 @@ export default function SidebarStrip({
           </div>
         </div>
 
-        {/* Bottom Section: Vertical Typography "DUSTIN / DEVELOPMENT / CREATIVITY" */}
-        <div className="relative z-10 flex flex-col items-center mb-6">
+        {/* Bottom Section: Vertical Typography "DUSTIN / DEVELOPMENT / CREATIVITY" (Desktop only) */}
+        <div className="relative z-10 hidden md:flex flex-col items-center mb-6">
           <div className="flex items-center gap-2 [writing-mode:vertical-rl] rotate-180">
             <span
               className={`font-mono text-[11px] lg:text-[12px] xl:text-[13px] 2xl:text-[14px] font-bold tracking-[0.28em] uppercase ${

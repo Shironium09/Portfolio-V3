@@ -202,7 +202,7 @@ function CardSaveFiles({ isDark, animationsEnabled, onExpand, cardRef }) {
           onMouseLeave={() => {
             if (!isDraggingRef.current) isHoveredRef.current = false
           }}
-          className="h-full w-full overflow-hidden flex items-center select-none cursor-grab active:cursor-grabbing touch-none"
+          className="h-full w-full overflow-hidden flex items-center select-none cursor-grab active:cursor-grabbing touch-pan-y md:touch-none"
         >
           <div
             ref={contentRef}
@@ -272,7 +272,7 @@ function ProjectCardItem({ project, isDark, onSelectProject }) {
         aria-label={`View ${project.name} case study`}
       >
         <span
-          className={`inline-block text-right text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-[6rem] font-black uppercase tracking-tight leading-[0.92] 2xl:leading-[0.88] transition-all duration-150 ${
+          className={`inline-block text-right text-2xl sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-[6rem] font-black uppercase tracking-tight leading-[0.92] 2xl:leading-[0.88] transition-all duration-150 ${
             isDark
               ? 'text-white/85 group-hover:text-white group-hover:-translate-x-1.5'
               : 'text-neutral-900/85 group-hover:text-black group-hover:-translate-x-1.5'
@@ -439,7 +439,7 @@ function CardProjects({ isDark, animationsEnabled, onExpand, cardRef }) {
           onMouseLeave={() => {
             if (!isDraggingRef.current) isHoveredRef.current = false
           }}
-          className="h-full w-full overflow-hidden pr-1 sm:pr-2 select-none cursor-grab active:cursor-grabbing touch-none"
+          className="h-full w-full overflow-hidden pr-1 sm:pr-2 select-none cursor-grab active:cursor-grabbing touch-pan-y md:touch-none"
         >
           <div
             ref={contentRef}
@@ -561,9 +561,9 @@ function CardMultilingual({ isDark, animationsEnabled }) {
         }`}
     >
       <AsciiSaturn isDark={isDark} animationsEnabled={animationsEnabled} />
-      <div className="relative z-10 my-auto pointer-events-none shrink-0 max-w-[55%] lg:max-w-[54%] xl:max-w-[52%] 2xl:max-w-[58%]">
+      <div className="relative z-10 my-auto pointer-events-none shrink-0 max-w-[62%] sm:max-w-[55%] md:max-w-[55%] lg:max-w-[54%] xl:max-w-[52%] 2xl:max-w-[58%]">
         <h1
-          className={`font-sans text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[6.25rem] 2xl:text-[9.5rem] font-black uppercase tracking-tight text-transparent select-none leading-none whitespace-nowrap transition-all duration-300 inline-block origin-left scale-x-95 ${
+          className={`font-sans text-4xl sm:text-5xl md:text-7xl lg:text-[5rem] xl:text-[6.25rem] 2xl:text-[9.5rem] font-black uppercase tracking-tight text-transparent select-none leading-none whitespace-nowrap transition-all duration-300 inline-block origin-left scale-x-95 ${
             isDark ? 'dustin-stroke-dark' : 'dustin-stroke-light'
           }`}
         >
@@ -773,8 +773,8 @@ export default function BentoGrid({
 
   return (
     <>
-      <div className="w-full h-full grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 lg:gap-5 xl:gap-6 2xl:gap-8">
-        {/* Row 1, Col 1: Experiences */}
+      <div className="w-full h-full grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-3.5 sm:gap-4 lg:gap-5 xl:gap-6 2xl:gap-8">
+        {/* Experiences (Mobile: 3rd | Desktop: Row 1, Col 1) */}
         <motion.div
           initial={isEntranceActive ? { scale: 0.05, opacity: 0 } : false}
           animate={
@@ -785,7 +785,7 @@ export default function BentoGrid({
               : { scale: 1, opacity: 1 }
           }
           transition={springPopTransition}
-          className={`md:col-span-1 h-full min-h-0 origin-center ${
+          className={`order-3 md:order-1 md:row-start-1 md:col-start-1 md:col-span-1 h-[190px] sm:h-[220px] md:h-full min-h-0 origin-center ${
             poppedCards?.experiences ? 'pointer-events-auto' : 'pointer-events-none'
           }`}
         >
@@ -797,7 +797,7 @@ export default function BentoGrid({
           />
         </motion.div>
 
-        {/* Row 1, Col 2: Projects */}
+        {/* Projects (Mobile: 2nd | Desktop: Row 1, Col 2) */}
         <motion.div
           initial={isEntranceActive ? { scale: 0.05, opacity: 0 } : false}
           animate={
@@ -808,7 +808,7 @@ export default function BentoGrid({
               : { scale: 1, opacity: 1 }
           }
           transition={springPopTransition}
-          className={`md:col-span-2 h-full min-h-0 origin-center ${
+          className={`order-2 md:order-2 md:row-start-1 md:col-start-2 md:col-span-2 h-[290px] sm:h-[330px] md:h-full min-h-0 origin-center ${
             poppedCards?.projects ? 'pointer-events-auto' : 'pointer-events-none'
           }`}
         >
@@ -820,7 +820,7 @@ export default function BentoGrid({
           />
         </motion.div>
 
-        {/* Row 2, Col 1: Page with my name (Dustin / Saturn) */}
+        {/* Grid with My Name - Saturn (Mobile: 1st on top | Desktop: Row 2, Col 1) */}
         <motion.div
           initial={isEntranceActive ? { scale: 0.05, opacity: 0 } : false}
           animate={
@@ -831,14 +831,14 @@ export default function BentoGrid({
               : { scale: 1, opacity: 1 }
           }
           transition={springPopTransition}
-          className={`md:col-span-2 h-full min-h-0 origin-center ${
+          className={`order-1 md:order-3 md:row-start-2 md:col-start-1 md:col-span-2 h-[230px] sm:h-[260px] md:h-full min-h-0 origin-center ${
             poppedCards?.saturn ? 'pointer-events-auto' : 'pointer-events-none'
           }`}
         >
           <CardMultilingual isDark={isDark} animationsEnabled={animationsEnabled} />
         </motion.div>
 
-        {/* Row 2, Col 2: Contact */}
+        {/* Contact (Mobile: 4th | Desktop: Row 2, Col 2) */}
         <motion.div
           initial={isEntranceActive ? { scale: 0.05, opacity: 0 } : false}
           animate={
@@ -849,7 +849,7 @@ export default function BentoGrid({
               : { scale: 1, opacity: 1 }
           }
           transition={springPopTransition}
-          className={`md:col-span-1 h-full min-h-0 origin-center ${
+          className={`order-4 md:order-4 md:row-start-2 md:col-start-3 md:col-span-1 h-[220px] sm:h-[240px] md:h-full min-h-0 origin-center ${
             poppedCards?.contact ? 'pointer-events-auto' : 'pointer-events-none'
           }`}
         >

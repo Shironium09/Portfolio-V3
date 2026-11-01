@@ -94,28 +94,39 @@ export default function App() {
 
       // 3. A second later, the grids appear one by one with a deliberate delay
       queue(() => {
-        // Step 1: Page with my name (Saturn / CardMultilingual)
-        popCardWithSound('saturn')
+        const isMobileScreen = typeof window !== 'undefined' && window.innerWidth < 768
 
-        // Step 2: Contact card (CardCalendar)
-        queue(() => {
-          popCardWithSound('contact')
-
-          // Step 3: Projects card (CardProjects)
+        if (isMobileScreen) {
+          // Mobile order: Name (saturn) -> Projects -> Experiences -> Contact
+          popCardWithSound('saturn')
           queue(() => {
             popCardWithSound('projects')
-
-            // Step 4: Experiences card (CardSaveFiles)
             queue(() => {
               popCardWithSound('experiences')
-
-              // Wait for all grids to finish popping & settle (~600ms), then activate all animations
               queue(() => {
-                setAreGridAnimationsReady(true)
-              }, 600)
+                popCardWithSound('contact')
+                queue(() => {
+                  setAreGridAnimationsReady(true)
+                }, 600)
+              }, 750)
             }, 750)
           }, 750)
-        }, 750)
+        } else {
+          // Desktop order: Name (saturn) -> Contact -> Projects -> Experiences
+          popCardWithSound('saturn')
+          queue(() => {
+            popCardWithSound('contact')
+            queue(() => {
+              popCardWithSound('projects')
+              queue(() => {
+                popCardWithSound('experiences')
+                queue(() => {
+                  setAreGridAnimationsReady(true)
+                }, 600)
+              }, 750)
+            }, 750)
+          }, 750)
+        }
       }, 1000)
     }, 1000)
   }
@@ -138,11 +149,11 @@ export default function App() {
       </AnimatePresence>
 
       <div
-        className={`w-screen h-screen h-[100dvh] overflow-hidden flex select-none ${
+        className={`w-screen h-screen h-[100dvh] overflow-hidden flex flex-col md:flex-row select-none ${
           isDark ? 'bg-[#07080b] text-neutral-100' : 'bg-[#eaedf2] text-neutral-900'
         }`}
       >
-        {/* Left Sidebar Strip with circular settings and inline downward toggle buttons */}
+        {/* Top Bar on Mobile / Left Sidebar on Desktop */}
         <SidebarStrip
           isDark={isDark}
           setIsDark={setIsDark}
@@ -155,8 +166,8 @@ export default function App() {
         />
 
         {/* Main Bento Grid Area */}
-        <main className="flex-1 h-full min-h-0 p-3 sm:p-4 lg:p-6 xl:p-8 2xl:p-10 overflow-hidden flex flex-col justify-center items-center">
-          <div className="w-full h-full max-w-[2400px]">
+        <main className="flex-1 min-h-0 w-full p-3.5 sm:p-4 lg:p-6 xl:p-8 2xl:p-10 overflow-y-auto md:overflow-hidden flex flex-col justify-start md:justify-center items-center custom-scrollbar">
+          <div className="w-full h-auto md:h-full max-w-[2400px] pb-6 md:pb-0">
             <BentoGrid
               isDark={isDark}
               animationsEnabled={effectiveGridAnimations}
