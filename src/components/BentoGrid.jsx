@@ -11,6 +11,7 @@ import projectsData from '../data/projects.json'
 import experienceData from '../data/experience.json'
 import contactData from '../data/contact.json'
 import scheduleData from '../data/schedule.json'
+import skillsData from '../data/skills.json'
 
 
 // 1. CARD: Experiences (Top-Left)
@@ -549,6 +550,91 @@ function useCebuSchedule() {
   return statusInfo
 }
 
+// Ambient Tech Skills Ticker for Hero Card
+function HeroTechTicker({ isDark, animationsEnabled }) {
+  
+  const contentRef = useRef(null)
+  const singleSetRef = useRef(null)
+  const targetOffsetRef = useRef(0)
+  const currentOffsetRef = useRef(0)
+  const autoSpeed = 18
+
+  useEffect(() => {
+    let animationFrameId
+    let lastTime = performance.now()
+
+    const tick = (now) => {
+      const dt = Math.min((now - lastTime) / 1000, 0.05)
+      lastTime = now
+
+      if (contentRef.current && singleSetRef.current) {
+        const singleWidth = singleSetRef.current.offsetWidth
+        if (singleWidth > 8) {
+          if (animationsEnabled) {
+            targetOffsetRef.current += autoSpeed * dt
+          }
+          const lerpFactor = 1 - Math.exp(-8 * dt)
+          currentOffsetRef.current += (targetOffsetRef.current - currentOffsetRef.current) * lerpFactor
+
+          while (targetOffsetRef.current >= singleWidth) {
+            targetOffsetRef.current -= singleWidth
+            currentOffsetRef.current -= singleWidth
+          }
+          while (targetOffsetRef.current < 0) {
+            targetOffsetRef.current += singleWidth
+            currentOffsetRef.current += singleWidth
+          }
+
+          contentRef.current.style.transform = `translate3d(${-currentOffsetRef.current}px, 0, 0)`
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(tick)
+    }
+
+    animationFrameId = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(animationFrameId)
+  }, [animationsEnabled])
+
+  return (
+    <div className="relative w-full max-w-[280px] sm:max-w-[340px] md:max-w-[380px] lg:max-w-[420px] 2xl:max-w-[500px] mt-2.5 sm:mt-3 2xl:mt-4 overflow-hidden select-none [mask-image:linear-gradient(to_right,transparent,black_14px,black_calc(100%-14px),transparent)]">
+      <div className="flex items-center overflow-hidden py-0.5">
+        <div ref={contentRef} className="flex items-center will-change-transform">
+          {/* Set 1 */}
+          <div ref={singleSetRef} className="flex items-center shrink-0">
+            {tickerItems.map((item, idx) => (
+              <span
+                key={`t1-${item}-${idx}`}
+                className={`inline-flex items-center text-[9px] sm:text-[10px] md:text-[11px] 2xl:text-xs font-mono font-medium tracking-wider uppercase pr-2.5 sm:pr-3.5 ${
+                  isDark ? 'text-neutral-400' : 'text-neutral-600'
+                }`}
+              >
+                <span>{item}</span>
+                <span className={`ml-2.5 sm:ml-3.5 select-none ${isDark ? 'text-white/20' : 'text-neutral-400'}`}>•</span>
+              </span>
+            ))}
+          </div>
+
+          {/* Set 2 (Seamless loop) */}
+          <div className="flex items-center shrink-0" aria-hidden="true">
+            {tickerItems.map((item, idx) => (
+              <span
+                key={`t2-${item}-${idx}`}
+                className={`inline-flex items-center text-[9px] sm:text-[10px] md:text-[11px] 2xl:text-xs font-mono font-medium tracking-wider uppercase pr-2.5 sm:pr-3.5 ${
+                  isDark ? 'text-neutral-400' : 'text-neutral-600'
+                }`}
+              >
+                <span>{item}</span>
+                <span className={`ml-2.5 sm:ml-3.5 select-none ${isDark ? 'text-white/20' : 'text-neutral-400'}`}>•</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // 3. CARD: Multilingual / ASCII Saturn (Bottom-Left)
 function CardMultilingual({ isDark, animationsEnabled }) {
   const { timeString, isInClass, currentClass } = useCebuSchedule()
@@ -601,6 +687,7 @@ function CardMultilingual({ isDark, animationsEnabled }) {
             </div>
           </div>
         )}
+
       </div>
     </div>
   )

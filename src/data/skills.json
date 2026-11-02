@@ -1,0 +1,48 @@
+{
+  "ticker": [
+    "React",
+    "TypeScript",
+    "NodeJS",
+    "React Native",
+    "Tailwind CSS",
+    "C++",
+    "JavaScript",
+    "Vite",
+    "Firebase",
+    "MySQL",
+    "Figma"
+  ],
+  "categories": [
+    {
+      "id": "languages",
+      "title": "Languages",
+      "description": "Core programming and scripting languages",
+      "skills": ["C", "C++", "JavaScript", "TypeScript"]
+    },
+    {
+      "id": "web-mobile",
+      "title": "Web and Mobile Development",
+      "description": "Modern frontend frameworks, mobile app tools, and styling systems",
+      "skills": ["HTML5", "CSS3", "React", "React Native", "Tailwind CSS", "Vite"]
+    },
+    {
+      "id": "backend",
+      "title": "Back End Development",
+      "description": "Server runtimes, databases, and cloud services",
+      "skills": ["NodeJS", "PHP", "MySQL", "Firebase"]
+    },
+    {
+      "id": "dev-tools",
+      "title": "Dev Tools",
+      "description": "Version control, mobile runtime tooling, and AI assistants",
+      "skills": ["Git", "GitHub", "Expo", "Google Gemini", "Claude"]
+    },
+    {
+      "id": "design-collab",
+      "title": "Design & Collab",
+      "description": "Prototyping, visual design, and collaborative whiteboard workflows",
+      "skills": ["Figma", "Canva", "Miro"]
+    }
+  ]
+}
+

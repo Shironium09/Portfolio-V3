@@ -25,6 +25,22 @@ export default function ExpandedCardModal({
   // backdropVisible controls backdrop blur/fade
   const [backdropVisible, setBackdropVisible] = useState(false)
 
+  // Track window width for responsive segmented control sizing
+  const [windowWidth, setWindowWidth] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth : 1200
+  )
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const isMobile = windowWidth < 768
+  const isSmallMobile = windowWidth < 480
+
   // Active tab state for segmented controls
   const [activeTab, setActiveTab] = useState(() => {
     if (expandedCard === 'experiences') return 'Organizations'
@@ -55,7 +71,7 @@ export default function ExpandedCardModal({
     expandedCard === 'experiences'
       ? ['Organizations', 'Certificates', 'Education']
       : expandedCard === 'projects'
-      ? ['Chosen', 'Personal']
+      ? ['Chosen', 'Personal', 'Skills']
       : []
 
   const isClosingRef = useRef(false)
@@ -426,7 +442,7 @@ export default function ExpandedCardModal({
 
                     {/* 2. Toggle Thing: Sticky at the very top when scrolled down */}
                     {segmentOptions.length > 0 && (
-                      <div className="sticky top-2 sm:top-3 lg:top-4 z-30 py-2 flex justify-center w-full pointer-events-auto">
+                      <div className="sticky top-2 sm:top-3 lg:top-4 z-30 py-2 flex justify-center w-full px-2 pointer-events-auto">
                         <RubberSegment
                           key={expandedCard}
                           items={segmentOptions}
@@ -438,11 +454,13 @@ export default function ExpandedCardModal({
                           activeTextColor={isDark ? '#09090b' : '#ffffff'}
                           className={
                             isDark
-                              ? 'border border-white/10 shadow-xl shadow-black/50'
-                              : 'border border-neutral-200 shadow-md shadow-neutral-200/50'
+                              ? 'border border-white/10 shadow-xl shadow-black/50 max-w-full'
+                              : 'border border-neutral-200 shadow-md shadow-neutral-200/50 max-w-full'
                           }
-                          size="md"
-                          radius={12}
+                          size={isSmallMobile ? 'xs' : isMobile ? 'sm' : 'md'}
+                          radius={isSmallMobile ? 8 : isMobile ? 10 : 12}
+                          inset={isSmallMobile ? 2 : 3}
+                          equalSlots={!isMobile}
                         />
                       </div>
                     )}
